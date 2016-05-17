@@ -1,7 +1,6 @@
 import subprocess as s
 import time
 
-
 def eyeuse():
     time.sleep(1200)
     s.call(['notify-send', 'Your Eyes', 'Take a break. Just 20 seconds.', '--urgency=critical'])
