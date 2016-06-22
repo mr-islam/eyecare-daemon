@@ -1,41 +1,44 @@
 import subprocess as s  # to pass system commands
 import time  # for pausing the script
 import platform as p  # to detect linux or osx
+from enums import Urgency
 
-os = p.system()
 
 # timer settings
-work_time_ms = 1200
-relax_time_ms = 22
-# feel free to change to something more persuasive and personal
+work_time = 1200
+relax_time = 20
+notification_expire_time_ms = 5000  # linux only
+
+# message settings
 warning_title = 'Your eyes'
-warning_message = 'Take a break. Just {} seconds.'.format(relax_time_ms)
+warning_message = 'Take a break. Just {} seconds.'.format(relax_time)
+warning_urgency = Urgency.high  # linux only. can be either low, medium or high
+
 success_title = 'Good job'
 success_message = 'You can get back to work.'
+success_urgency = Urgency.low   # linux only. can be either low, medium or high
 
-# to specify custom timeout, use `--expire-time=TIME` flag after priority. (TIME in milliseconds)
 
-while os.lower() == 'linux':
+# get the system platform
+os = p.system().lower()
+
+
+if os == 'linux':
     command = 'notify-send'  # command being used
+    expiration = '--expire-time={}'.format(notification_expire_time_ms)
 
-    # notify-send importance parameters. system default is 2.
-    priority1 = '--urgency=low'
-    priority2 = '--urgency=normal'
-    priority3 = '--urgency=critical'
+    while True:
+        time.sleep(work_time)
+        s.call([command, warning_urgency, expiration, warning_title, warning_message])
+        time.sleep(relax_time)
+        s.call([command, success_urgency, expiration, success_title, success_message])
 
-    # the actual script
-    time.sleep(work_time_ms)
-    s.call([command, priority3, warning_title, warning_message])
-    time.sleep(relax_time_ms)
-    s.call([command, priority2, success_title, success_message])
-
-while os.lower() == 'darwin':  # thats OSX
+if os == 'darwin':  # thats OSX
     command1 = 'osascript -e'
     command2 = 'display notification'  # osx command, extra ' has to be there!
-    success_title = 'Good job'
-    warning_title = 'Your eyes'  # againg, trailing ' is needed!
 
-    time.sleep(work_time_ms)
-    s.call([command1, warning_message, 'with title', warning_title])
-    time.sleep(relax_time_ms)
-    s.call([command1, success_message, 'with title', success_title])
+    while True:
+        time.sleep(work_time)
+        s.call([command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' + warning_title + '\"'])
+        time.sleep(relax_time)
+        s.call([command1, '\'' + command2, '\"' + success_title + '\"', 'with title', '\"' + success_message + '\"'])
