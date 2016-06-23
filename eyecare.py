@@ -19,7 +19,7 @@ while os == 'Linux':
 
     #notify-send parameters
     priority1 =     '--urgency=low'
-    priority2 =     '--urgency=normal'      #system default
+    priority2 =     '--urgency=normal' #system default
     priority3 =     '--urgency=critical'
     timeout =       '--expire-time=22'
 
@@ -30,12 +30,12 @@ while os == 'Linux':
     s.call([command, priority2, timeout, success_title, success_message])
 
 while os == 'Darwin': #thats OSX
-    command1 =      "osascript -e"
-    command2 =      "'display notification" #osx command, extra ' has to be there!
+    command1 = "osascript -e"
+    command2 = "'display notification" #osx command, extra ' has to be there!
     success_title = "Good job'" 
     warning_title = "Your eyes'" #again, trailing ' is needed!
 
-    time.sleep(4) #short timer to aid in testing
+    time.sleep(4) #short timer to aid testing
     s.call([command1, warning_message, 'with title', warning_title])
     time.sleep(2)
     s.call([command1, success_message, 'with title', success_title])
