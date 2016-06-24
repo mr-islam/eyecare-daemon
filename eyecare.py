@@ -33,13 +33,3 @@ if os == 'linux':
         time.sleep(relax_time)
         s.call([command, success_urgency, expiration, success_title, success_message])
 
-if os == 'darwin':  # thats OSX
-    command1 = 'osascript -e'
-    command2 = 'display notification'  # osx command, extra ' has to be there!
-
-    while True:
-        time.sleep(work_time)
-        s.call([command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' + warning_title + '\"'])
-        time.sleep(relax_time)
-        s.call([command1, '\'' + command2, '\"' + success_title + '\"', 'with title', '\"' + success_message + '\"'])
->>>>>>> afe5d4b355d3cf61f5199ae9375f0a60805ff825
