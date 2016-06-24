@@ -1,42 +1,45 @@
-import subprocess as s  #to pass system commands
-import time as t        #for the timer
-import platform as p    #to detect linux or osx
+import subprocess as s  # to pass system commands
+import time  # for pausing the script
+import platform as p  # to detect linux or osx
+from enums import Urgency
 
-#feel free to change to something more persuasive and personal
-warning_title =     "Your eyes"
-warning_message =   "Take a break. Just 20 seconds."
-success_title =     "Good job"
-success_message =   "You can get back to work."
 
-#timer_settings
-screen_time =   '1200'
-rest_time =     '22'
+# timer settings
+work_time = 1200
+relax_time = 20
+notification_expire_time_ms = 5000  # linux only
 
-os = p.system()
+# message settings
+warning_title = 'Your eyes'
+warning_message = 'Take a break. Just {} seconds.'.format(relax_time)
+warning_urgency = Urgency.high  # linux only. can be either low, medium or high
 
-while os == 'Linux':
-    command = 'notify-send' #system command
+success_title = 'Good job'
+success_message = 'You can get back to work.'
+success_urgency = Urgency.low   # linux only. can be either low, medium or high
 
-    #notify-send parameters
-    priority1 =     '--urgency=low'
-    priority2 =     '--urgency=normal' #system default
-    priority3 =     '--urgency=critical'
-    timeout =       '--expire-time=22'
 
-    #the actual script
-    t.sleep(screen_time)
-    s.call([command, priority3, timeout, warning_title, warning_message])
-    t.sleep(rest_time)
-    s.call([command, priority2, timeout, success_title, success_message])
+# get the system platform
+os = p.system().lower()
 
-while os == 'Darwin': #thats OSX
-    command1 = "osascript -e"
-    command2 = "'display notification" #osx command, extra ' has to be there!
-    success_title = "Good job'" 
-    warning_title = "Your eyes'" #again, trailing ' is needed!
 
-    time.sleep(4) #short timer to aid testing
-    s.call([command1, warning_message, 'with title', warning_title])
-    time.sleep(2)
-    s.call([command1, success_message, 'with title', success_title])
+if os == 'linux':
+    command = 'notify-send'  # command being used
+    expiration = '--expire-time={}'.format(notification_expire_time_ms)
 
+    while True:
+        time.sleep(work_time)
+        s.call([command, warning_urgency, expiration, warning_title, warning_message])
+        time.sleep(relax_time)
+        s.call([command, success_urgency, expiration, success_title, success_message])
+
+if os == 'darwin':  # thats OSX
+    command1 = 'osascript -e'
+    command2 = 'display notification'  # osx command, extra ' has to be there!
+
+    while True:
+        time.sleep(work_time)
+        s.call([command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' + warning_title + '\"'])
+        time.sleep(relax_time)
+        s.call([command1, '\'' + command2, '\"' + success_title + '\"', 'with title', '\"' + success_message + '\"'])
+>>>>>>> afe5d4b355d3cf61f5199ae9375f0a60805ff825
