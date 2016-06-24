@@ -1,7 +1,7 @@
-import subprocess as s  # to pass system commands
-import time  # for pausing the script
-import platform as p  # to detect linux or osx
-from enums import Urgency
+import subprocess as s      # to pass system commands
+import time                 # for pausing the script
+import platform as p        # to detect linux or osx
+from enums import Urgency   # config
 
 
 # timer settings
@@ -39,6 +39,7 @@ if os == 'darwin':  # thats OSX
 
     while True:
         time.sleep(work_time)
-        s.call([command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' + warning_title + '\"'])
+        s.send([command1, "/'", command2, '/"', warning_message, '/"', 'with title', '/"', warning_title, '/"', "/'"])
         time.sleep(relax_time)
-        s.call([command1, '\'' + command2, '\"' + success_title + '\"', 'with title', '\"' + success_message + '\"'])
+        s.send([command1, "/'", command2, '/"', success_message, '/"', 'with title', '/"', success_title, '/"', "/'"])
+
