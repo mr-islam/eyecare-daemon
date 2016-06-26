@@ -5,8 +5,8 @@ from enums import Urgency   # urgency variables
 
 
 # timer settings in seconds
-work_time = 4
-relax_time = 2
+work_time = 1200
+relax_time = 20
 notification_expire_time_ms = 5000  # linux only
 
 # message settings
