@@ -29,7 +29,6 @@ if os == 'linux':
 
     while True:
         time.sleep(work_time)
-        s.call([command, warning_urgency, expiration, warning_title, warning_message])
+        s.call([command, warning_urgency.value, expiration, warning_title, warning_message])
         time.sleep(relax_time)
-        s.call([command, success_urgency, expiration, success_title, success_message])
-
+        s.call([command, success_urgency.value, expiration, success_title, success_message])
