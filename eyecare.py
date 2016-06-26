@@ -1,12 +1,12 @@
 import subprocess as s      # to pass system commands
 import time                 # for pausing the script
 import platform as p        # to detect linux or osx
-from enums import Urgency   # urgency variables
-
+#from enums import Urgency   # urgency variables
+import config
 
 # timer settings in seconds
-work_time = 1200 
-relax_time = 20
+work_time = 4
+relax_time = 2
 notification_expire_time_ms = 5000  # linux only
 
 # message settings
