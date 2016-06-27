@@ -37,9 +37,13 @@ if os1 == 'linux':
 if os1 == 'darwin':  # thats OSX
     command1 = 'osascript -e'
     command2 = 'display notification'  # osx command, extra ' has to be there!
-
+#osascript -e 'display notification "Lorem ipsum dolor sit amet" with title "Title"'
     while True:
         time.sleep(work_time)
-        os.system('\"' + command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"' + '\'', '\"')
+        os.system('\"' + command1 + ' \'' + command2 + ' \"' + warning_message + '\" ' + 'with title' + ' \"' +  warning_title + '\"' + '\'' + '\"')
         time.sleep(relax_time)
-        os.system('\"' + command1, '\'' + command2, '\"' + success_message + '\"', 'with title', '\"' +  success_title + '\"' + '\'', '\"')
+        os.system('\"' + command1 + ' \'' + command2 + ' \"' + success_message + '\" ' + 'with title' + ' \"' +  success_title + '\"' + '\'' + '\"')
+
+#TODO: detect python version, use either `os.system` or `subprocess.call` 
+#TODO: undo linux breakage
+#TODO: fix enum like reddit bro said
