@@ -39,7 +39,7 @@ if os == 'darwin':  # thats OSX
 
     while True:
         time.sleep(work_time)
-        s.call([command1, "/'", command2, '/"' + warning_message + '/"', 'with title', '/"' +  warning_title + '/"', "/'"])
+        s.call([command1, "\'", command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"', "\'"])
         time.sleep(relax_time)
-        s.call([command1, "/'", command2, '/"' + success_message + '/"', 'with title', '/"' + success_title + '/"', "/'"])
+        s.call([command1, "\'", command2, '\"' + success_message + '\"', 'with title', '\"' + success_title + '\"', "\'"])
 
