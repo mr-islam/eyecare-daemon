@@ -50,10 +50,17 @@ if os1 == 'darwin':  # thats OSX
     command1 = 'osascript -e'
     command2 = 'display notification'  # osx command, extra ' has to be there!
     with_title = 'with title'
-    warning_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,warning_message,with_title,warning_title)
-    success_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,success_message,with_title,success_title)
 
-    while True: #TODO: implement command_method 1 and 2
+    while command_method == 1:
+        time.sleep(work_time)
+        s.call([command1, "\'" + command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"' + "\'"])
+        time.sleep(relax_time)
+        s.call([command1, "\'" + command2, '\"' + success_message + '\"', 'with title', '\"' + success_title + '\"' + "\'"])
+
+    while command_method == 2: #TODO: implement command_method 1 and 2
+        warning_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,warning_message,with_title,warning_title)
+        success_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,success_message,with_title,success_title)
+
         time.sleep(work_time)
         os.system(warning_cmd)
         time.sleep(relax_time)
