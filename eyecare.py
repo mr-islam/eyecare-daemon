@@ -38,8 +38,8 @@ if os1 == 'linux':
         s.call([command, success_urgency, expiration, success_title, success_message])
 
     while command_method == 2:
-        warning_cmd = "{0} {1} {2} \"{3}\" \"{4}\"".format(command,warning_urgency,expiration,warning_title,warning_message)
-        success_cmd = "{0} {1} {2} \"{3}\" \"{4}\"".format(command,success_urgency,expiration,success_title,success_message)
+        warning_cmd = "{0} {1} {2} \"{3}\" \"{4}\"".format(command, warning_urgency, expiration, warning_title, warning_message)
+        success_cmd = "{0} {1} {2} \"{3}\" \"{4}\"".format(command, success_urgency, expiration, success_title, success_message)
 
         time.sleep(work_time)
         os.system(warning_cmd)
@@ -58,8 +58,8 @@ if os1 == 'darwin':  # thats OSX
         s.call([command1, "\'" + command2, '\"' + success_message + '\"', 'with title', '\"' + success_title + '\"' + "\'"])
 
     while command_method == 2: #TODO: implement command_method 1 and 2
-        warning_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,warning_message,with_title,warning_title)
-        success_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1,command2,success_message,with_title,success_title)
+        warning_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1, command2, warning_message, with_title, warning_title)
+        success_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1, command2, success_message, with_title, success_title)
 
         time.sleep(work_time)
         os.system(warning_cmd)
