@@ -46,7 +46,7 @@ if os1 == 'linux':
         time.sleep(relax_time)
         os.system(success_cmd)
 
-if os1 == 'darwin':  # thats OSX
+if os1 == 'darwin':  # thats osx
     command1 = 'osascript -e'
     command2 = 'display notification'  # osx command, extra ' has to be there!
     with_title = 'with title'
@@ -57,7 +57,7 @@ if os1 == 'darwin':  # thats OSX
         time.sleep(relax_time)
         s.call([command1, "\'" + command2, '\"' + success_message + '\"', 'with title', '\"' + success_title + '\"' + "\'"])
 
-    while command_method == 2: #TODO: implement command_method 1 and 2
+    while command_method == 2:
         warning_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1, command2, warning_message, with_title, warning_title)
         success_cmd = "{0} \'{1} \"{2}\" {3} \"{4}\"\'".format(command1, command2, success_message, with_title, success_title)
 
@@ -66,6 +66,3 @@ if os1 == 'darwin':  # thats OSX
         time.sleep(relax_time)
         os.system(success_cmd)
 
-#TODO: add customizability for osx command (http://apple.stackexchange.com/questions/57412/how-can-i-trigger-a-notification-center-notification-from-an-applescript-or-shel/115373#115373)
-#TODO: option between subprocess and os
-#TODO: detect python version, use either `os.system` or `subprocess.call` (http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script)
