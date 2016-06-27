@@ -1,7 +1,7 @@
 import subprocess as s      # to pass system commands
 import time                 # for pausing the script
 import platform as p        # to detect linux or osx
-from enums import Urgency   # config
+#from enums import Urgency   # config
 
 
 # timer settings
