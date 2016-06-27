@@ -40,7 +40,6 @@ if os1 == 'darwin':  # thats OSX
 
     while True:
         time.sleep(work_time)
-        os.system("command1, '\'', command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"', '\''")
+        os.system('\"' + command1, '\'' + command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"' + '\'', '\"')
         time.sleep(relax_time)
-        os.system("command1, '\'', command2, '\"' + success_message + '\"', 'with title', '\"' + success_title + '\"', '\''")
-
+        os.system('\"' + command1, '\'' + command2, '\"' + success_message + '\"', 'with title', '\"' +  success_title + '\"' + '\'', '\"')
