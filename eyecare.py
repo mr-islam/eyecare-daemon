@@ -37,12 +37,16 @@ if os1 == 'linux':
 if os1 == 'darwin':  # thats OSX
     command1 = 'osascript -e'
     command2 = 'display notification'  # osx command, extra ' has to be there!
+    with_title = 'with title'
 #osascript -e 'display notification "Lorem ipsum dolor sit amet" with title "Title"'
     while True:
         time.sleep(work_time)
-        os.system('\"' + command1 + ' \'' + command2 + ' \"' + warning_message + '\" ' + 'with title' + ' \"' +  warning_title + '\"' + '\'' + '\"')
+        #cmd = "ls -{0} -{1}".format(var1,var2)
+        warning_cmd = "-{0} \'-{1} \"-{2}\" -{3} \"-{4}\"\'".format(command1,command2,warning_message,with_title,warning_title)
+        os.system(warning_cmd)
         time.sleep(relax_time)
-        os.system('\"' + command1 + ' \'' + command2 + ' \"' + success_message + '\" ' + 'with title' + ' \"' +  success_title + '\"' + '\'' + '\"')
+        succuess_cmd = "-{0} \'-{1} \"-{2}\" -{3} \"-{4}\"\'".format(command1,command2,success_message,with_title,success_title)
+        os.system(success_cmd)
 
 #TODO: detect python version, use either `os.system` or `subprocess.call` (http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script)
 #TODO: undo linux breakage
