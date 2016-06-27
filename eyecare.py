@@ -47,3 +47,5 @@ if os1 == 'darwin':  # thats OSX
 #TODO: detect python version, use either `os.system` or `subprocess.call` (http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script)
 #TODO: undo linux breakage
 #TODO: fix enum like reddit bro said (https://www.reddit.com/r/osx/comments/4q3aml/anyone_willing_to_help_test_this_python_script/d4py2v3)
+#TODO: add customizability for osx command (http://apple.stackexchange.com/questions/57412/how-can-i-trigger-a-notification-center-notification-from-an-applescript-or-shel/115373#115373) 
+#and also (http://stackoverflow.com/questions/5588064/how-do-i-make-a-mac-terminal-pop-up-alert-applescript)
