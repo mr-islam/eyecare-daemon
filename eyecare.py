@@ -44,6 +44,6 @@ if os1 == 'darwin':  # thats OSX
         time.sleep(relax_time)
         os.system('\"' + command1 + ' \'' + command2 + ' \"' + success_message + '\" ' + 'with title' + ' \"' +  success_title + '\"' + '\'' + '\"')
 
-#TODO: detect python version, use either `os.system` or `subprocess.call` 
+#TODO: detect python version, use either `os.system` or `subprocess.call` (http://stackoverflow.com/questions/1093322/how-do-i-check-what-version-of-python-is-running-my-script)
 #TODO: undo linux breakage
-#TODO: fix enum like reddit bro said
+#TODO: fix enum like reddit bro said (https://www.reddit.com/r/osx/comments/4q3aml/anyone_willing_to_help_test_this_python_script/d4py2v3)
