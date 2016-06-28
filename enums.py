@@ -1,7 +1,5 @@
-from enum import Enum
-
-
-class Urgency(Enum):
+class Urgency():
     low = '--urgency=low'
     medium = '--urgency=normal'
     high = '--urgency=critical'
+
