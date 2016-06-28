@@ -24,7 +24,7 @@ success_urgency = Urgency.low   # linux only. can be either low, medium or high
 os1 = p.system().lower()
 
 # 1 is preferred, but try 2 if you encounter an `OSError`
-command_method = 1
+command_method = 2
 
 
 if os1 == 'linux':
