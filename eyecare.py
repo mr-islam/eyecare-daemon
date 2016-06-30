@@ -35,7 +35,7 @@ if os1 == 'linux':
 
     while command_method == 'modern':
         time.sleep(work_time)
-        s.call([command, warning_urgency.value, expiration, warning_title, warning_message])
+        s.call([command, warning_urgency, expiration, warning_title, warning_message])
         time.sleep(relax_time)
         s.call([command, success_urgency, expiration, success_title, success_message])
 
@@ -53,7 +53,7 @@ if os1 == 'darwin':  # thats osx
     command2 = 'display notification'  # osx command, extra ' has to be there!
     with_title = 'with title'
     command_method = 'legacy'
-    # legacy is default for osx, because osx users so far have enocuntered the error mentioned in line 26. 
+    # legacy is default for osx, because osx users so far have enocuntered the error mentioned in line 26.
     # please comment out line 56 if your python path variable is set.
 
     while command_method == 'modern':
