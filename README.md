@@ -25,8 +25,6 @@ Download both `eyecare.py` and `enums.py` and place them in the same folder. Set
 | `relax_time` | Default `20`, in seconds |
 | `notification_expire` - Linux only | Default `5000`, in ms |
 | `command_method` | `modern` is preferred, but try `legacy` if you encounter an `OSError`-- this error happens when your shell python path variable is not set, so please do set it. `legacy` is also the default for osx as most people (I presume) do not have the path variable set, and those who do will comment out this default anyway :) |
-| col 3 is | right-aligned |
-| col 3 is | right-aligned |
 
 ## Dependencies
 
