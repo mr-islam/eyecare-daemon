@@ -5,10 +5,9 @@ import os                   # legacy system command method
 from enums import Urgency   # linux urgency settings
 
 
-# timer settings in seconds
 work_time = 1200
 relax_time = 20
-notification_expire_time_ms = 5000  # linux only
+notification_expire = 5000  # linux only
 
 # message settings
 warning_title = 'Your eyes'
@@ -23,15 +22,11 @@ success_urgency = Urgency.low  # linux only. can be either low, medium or high
 # get the system platform
 os1 = p.system().lower()
 
-# modern is preferred, but try 'os.system' if you encounter an `OSError`
-# the above error happens when your shell python path variable is not set, so please
-# do set it. in the meanwhile, enjoy using the deprecated method :)
-
 command_method = 'modern' # 'modern' = subprocess.call | 'legacy' = os.system
 
 if os1 == 'linux':
     command = 'notify-send'  # command being used
-    expiration = '--expire-time={}'.format(notification_expire_time_ms)
+    expiration = '--expire-time={}'.format(notification_expire)
 
     while command_method == 'modern':
         time.sleep(work_time)
@@ -53,9 +48,7 @@ if os1 == 'darwin':  # thats osx
     command2 = 'display notification'  # osx command, extra ' has to be there!
     with_title = 'with title'
     command_method = 'legacy'
-    # legacy is default for osx, because osx users so far have enocuntered the error mentioned in line 26.
-    # please comment out line 56 if your python path variable is set.
-
+    
     while command_method == 'modern':
         time.sleep(work_time)
         s.call([command1, "\'" + command2, '\"' + warning_message + '\"', 'with title', '\"' +  warning_title + '\"' + "\'"])
@@ -70,5 +63,3 @@ if os1 == 'darwin':  # thats osx
         os.system(warning_cmd)
         time.sleep(relax_time)
         os.system(success_cmd)
-
-#TODO: Start a wiki
