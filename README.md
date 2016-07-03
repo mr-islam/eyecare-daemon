@@ -19,7 +19,6 @@ Download both `eyecare.py` and `enums.py` and place them in the same folder. Set
 
 * python
 * `libnotify` for linux notification (sometimes packaged as `libnotify-bin`)
-* ___ for Windows [coming soon!]
 
 ____
 
