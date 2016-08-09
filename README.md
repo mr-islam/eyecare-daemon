@@ -10,7 +10,7 @@ ____
 
 Simplicity itself.
 
-Download both `eyecare.py` and `enums.py` and place them in the same folder. Set the following code to run at startup (eg. putting it in `xinit.rc` or your window manager config file):
+Download both `eyecare.py` and `enums.py` and place them in the same folder. Set the following code to run at startup (eg. putting it in `xinit.rc` or your distro settings):
 
     python ~/path/to/file/eyecare.py
 
@@ -26,12 +26,17 @@ Download both `eyecare.py` and `enums.py` and place them in the same folder. Set
 ## Dependencies
 
 * python
-* `libnotify` for linux notification (sometimes packaged as `libnotify-bin`)
+* `libnotify` for linux notification
+
+## Notes
+Confirmed to work on:
+* Ubuntu 16.04 LTS (meaning derivative distros also should work)
+* Arch Linux with `libnotify-bin`, and something to handle notifications installed (`dunst` is used in the screenshot)
 
 ____
 
 ## Hall of Fame
 
-* @ragerin for a very helpful fork which was merged a long while ago
-* /u/guiltydoggy for testing the osx script and putting up with my relentless revisions
+* @ragerin for a very helpful fork which was merged a long while ago, and is the foundation of today's daemon
+* /u/guiltydoggy for testing the osx script repeatedly, and putting up with my relentless revisions
 
