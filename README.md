@@ -37,6 +37,5 @@ ____
 
 ## Hall of Fame
 
-* @ragerin for a very helpful fork which was merged a long while ago, and is the foundation of today's daemon
-* /u/guiltydoggy for testing the osx script repeatedly, and putting up with my relentless revisions
-
+* [@ragerin](https://github.com/ragerin) for a very helpful fork which was merged a long while ago, which is the foundation of today's daemon
+* [/u/guiltydoggy](https://www.reddit.com/user/guiltydoggy) for testing the osx script repeatedly, and putting up with my relentless revisions
